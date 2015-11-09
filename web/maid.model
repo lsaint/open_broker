@@ -1,0 +1,148 @@
+# This is an auto-generated Django model module.
+# You'll have to do the following manually to clean this up:
+#     * Rearrange models' order
+#     * Make sure each model has one field with primary_key=True
+# Feel free to rename the models, but don't rename db_table values or field names.
+#
+# Also note: You'll have to insert the output of 'django-admin.py sqlcustom [appname]'
+# into your database.
+
+from django.db import models
+
+class CallRecord(models.Model):
+    call_sn = models.BigIntegerField(primary_key=True)
+    from_uid = models.IntegerField()
+    maid_uid = models.IntegerField()
+    appid = models.IntegerField()
+    start_time = models.IntegerField()
+    end_time = models.IntegerField()
+    cost_minute = models.IntegerField()
+    points = models.IntegerField()
+    call_status = models.IntegerField()
+    comment_score = models.IntegerField()
+    comment_text = models.CharField(max_length=3072, blank=True)
+    yb = models.IntegerField()
+    class Meta:
+        db_table = u'call_record'
+
+class ChargeRecord(models.Model):
+    sn = models.BigIntegerField(primary_key=True)
+    orderid = models.CharField(max_length=765, blank=True)
+    uid = models.IntegerField()
+    money = models.IntegerField()
+    time_str = models.CharField(max_length=96)
+    curr_status = models.IntegerField()
+    long_sid = models.IntegerField()
+    last_modify_time = models.DateTimeField()
+    cfrom_appid = models.IntegerField()
+    lorderid = models.CharField(max_length=765, blank=True)
+    class Meta:
+        db_table = u'charge_record'
+
+class ClientInfo(models.Model):
+    from_uid = models.IntegerField(primary_key=True)
+    points = models.IntegerField()
+    total_s_cnt = models.IntegerField()
+    total_s_time = models.IntegerField()
+    total_pt = models.BigIntegerField(null=True, blank=True)
+    cost_yb = models.IntegerField()
+    class Meta:
+        db_table = u'client_info'
+
+class GiftCharms(models.Model):
+    giftid = models.IntegerField(primary_key=True)
+    gift_charm = models.IntegerField()
+    class Meta:
+        db_table = u'gift_charms'
+
+class MaidApply(models.Model):
+    id = models.IntegerField(primary_key=True)
+    imid = models.BigIntegerField()
+    uid = models.BigIntegerField(unique=True)
+    nick = models.CharField(max_length=600)
+    create_time = models.IntegerField()
+    status = models.IntegerField()
+    class Meta:
+        db_table = u'maid_apply'
+
+class MaidApplyApp(models.Model):
+    uid = models.BigIntegerField(primary_key=True)
+    appid = models.IntegerField(primary_key=True)
+    class Meta:
+        db_table = u'maid_apply_app'
+
+class MaidApps(models.Model):
+    appid = models.IntegerField(primary_key=True)
+    sha1_key = models.CharField(max_length=192)
+    class Meta:
+        db_table = u'maid_apps'
+
+class MaidInfo(models.Model):
+    uid = models.IntegerField(primary_key=True)
+    appid = models.IntegerField()
+    service_level = models.IntegerField()
+    service_score = models.BigIntegerField()
+    total_s_time = models.BigIntegerField()
+    total_s_cnt = models.BigIntegerField()
+    points = models.BigIntegerField()
+    price = models.IntegerField()
+    status = models.IntegerField()
+    start_time = models.DateTimeField()
+    yb = models.IntegerField()
+    yb_price = models.IntegerField()
+    class Meta:
+        db_table = u'maid_info'
+
+class MaidRes(models.Model):
+    maid_id = models.IntegerField(unique=True)
+    uid = models.IntegerField(primary_key=True)
+    imid = models.IntegerField()
+    nick = models.CharField(max_length=384)
+    charm = models.BigIntegerField()
+    points = models.BigIntegerField()
+    total_s_time = models.BigIntegerField()
+    total_s_cnt = models.BigIntegerField()
+    start_time = models.DateTimeField()
+    yb = models.IntegerField()
+    class Meta:
+        db_table = u'maid_res'
+
+class SlMid(models.Model):
+    maid_id = models.IntegerField(primary_key=True)
+    maid_s_id = models.IntegerField(unique=True)
+    class Meta:
+        db_table = u'sl_mid'
+
+class StatistTb(models.Model):
+    st_date = models.DateTimeField(primary_key=True)
+    worked_maids = models.IntegerField()
+    total_calls = models.IntegerField()
+    succ_calls = models.IntegerField()
+    succ_minutes = models.IntegerField()
+    total_pt = models.IntegerField()
+    total_yb = models.IntegerField()
+    effective_calls = models.IntegerField()
+    uniq_callers = models.IntegerField()
+    invites = models.IntegerField()
+    uniq_invite_users = models.IntegerField()
+    call_res_time = models.IntegerField()
+    call_cacnel_time = models.IntegerField()
+    class Meta:
+        db_table = u'statist_tb'
+
+class UserBinfos(models.Model):
+    from_uid = models.IntegerField(primary_key=True)
+    reg_time = models.IntegerField()
+    last_login_time = models.IntegerField()
+    class Meta:
+        db_table = u'user_binfos'
+
+class UserSrate(models.Model):
+    st_date = models.DateTimeField(primary_key=True)
+    1rate = models.CharField(max_length=24)
+    3rate = models.CharField(max_length=24)
+    5rate = models.CharField(max_length=24)
+    7rate = models.CharField(max_length=24)
+    class Meta:
+        db_table = u'user_srate'
+

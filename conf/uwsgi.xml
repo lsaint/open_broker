@@ -1,0 +1,15 @@
+
+<uwsgi>
+     <virtualenv>/home/lsaint/Envs/dj13/</virtualenv>
+     <pythonpath>/home/lsaint/Envs/dj13/broker/</pythonpath>
+     <!--<pythonpath>/home/lsaint/trunk/projs/yy_web/src/broker/</pythonpath>-->
+     <socket>127.0.0.1:9090</socket>
+     <processes>3</processes> 
+     <worker>3</worker>> 
+     <module>conf.django_wsgi</module>
+     <master>true</master>
+     <procname-master>broker_master</procname-master>
+     <procname>broker</procname>
+     <!--<logto>/home/lsaint/broker/log/broker.log</logto>-->
+     <logto>172.19.45.141:31717</logto>
+</uwsgi>

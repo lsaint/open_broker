@@ -1,0 +1,6 @@
+
+<uwsgi>
+    <udp>0.0.0.0:31717</udp>
+    <!--<daemonize>true</daemonize>-->
+    <logto>/data/broker/broker.log</logto>
+</uwsgi>

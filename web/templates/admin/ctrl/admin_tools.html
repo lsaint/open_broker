@@ -1,0 +1,82 @@
+
+{% extends "admin/base_site.html" %}
+
+
+{% block branding %}                                                                                                  
+<h1 id="site-name">There's always a Plan B.</h1>                                                                      
+{% endblock %}                                                                                                        
+                                                                                                                      
+{% block userlinks %}                                                                                                 
+    {{ block.super }}                                                                                                 
+{% endblock %}                                                                                                        
+                                                                                                                      
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="/admin">管理首页</a> L'
+    <a href="/">网站首页</a>
+</div>
+{% endblock %}
+                                                                                                                      
+                                                                                                                      
+{% block content %}                                                                                                   
+    {{ block.super }}                                                                                                 
+    <div id="content-main">                                                                                           
+
+        <form action="" method="post"> {% csrf_token %}
+            {{ formenableclound.as_table }}
+            <input type="submit" value="开启云存储">
+        </form>
+        <br>
+        <form action="" method="post"> {% csrf_token %}
+            {{ formaddchlapp.as_table }}
+            <input type="submit" value="添加App">
+        </form>
+        <br>
+        <form action="" method="post"> {% csrf_token %}
+            {{ formdelchlapp.as_table }}
+            <input type="submit" value="删除App">
+        </form>
+        <br>
+
+        <form action="" method="post"> {% csrf_token %}
+            {{ formaddchlwhite.as_table }}
+            <input type="submit" value="添加白名单">
+        </form>
+        <br>
+        <form action="" method="post"> {% csrf_token %}
+            {{ formdelchlwhite.as_table }}
+            <input type="submit" value="删除白名单">
+        </form>
+        <br>
+
+<!--
+        <form action="" method="post"> {% csrf_token %}
+            {{ form_createmodifyapp.as_table }}
+            <input type="submit" value="创建/修改App">
+        </form>
+        <br>
+        <form action="" method="post"> {% csrf_token %}
+            {{ form_addmodifyversion.as_table }}
+            <input type="submit" value="增加App版本">
+        </form>
+        <br>
+--!>
+        <form action="" method="post"> {% csrf_token %}
+            {{ formsettestapp.as_table }}
+            <input type="submit" value="设置频道灰度版本">
+        </form>
+        <br>
+
+        <form action="" method="post"> {% csrf_token %}
+            {{ formdelapp.as_table }}
+            <input type="submit" value="一键删除">
+        </form>
+        <br>
+
+        <form action="" method="post"> {% csrf_token %}
+            {{ formaddmodifyver.as_table }}
+            <input type="submit" value="添加/修改版本">
+        </form>
+    </div>                                                                                                            
+{% endblock %}
+
